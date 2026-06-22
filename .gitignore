@@ -1,5 +1,25 @@
-venv/
-myenv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+myenv/
+
+# VS Code
+.vscode/
+
+# Mac
 .DS_Store
+
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
