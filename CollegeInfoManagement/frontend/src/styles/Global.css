@@ -1,0 +1,30 @@
+body{
+  background:#07122b;
+  color:white;
+  font-family:Inter,sans-serif;
+}
+
+.page{
+  padding:40px;
+}
+
+.statCard{
+  background:#14213d;
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+}
+
+.collegeCard{
+  background:#14213d;
+  padding:20px;
+  border-radius:16px;
+}
+
+.adminBtn{
+  padding:15px 30px;
+  border:none;
+  background:#dc2626;
+  color:white;
+  border-radius:12px;
+}

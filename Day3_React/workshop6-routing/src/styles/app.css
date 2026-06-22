@@ -1,0 +1,187 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f4f7fc;
+  font-family:Arial, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar{
+  background:linear-gradient(90deg,#0056a6,#007bff);
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:80px;
+}
+
+.logo{
+  color:white;
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.nav-links{
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#ffd700;
+}
+
+.logout-btn{
+  background:#ff3b30;
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* DASHBOARD */
+
+.dashboard-container{
+  padding:50px;
+}
+
+.dashboard-title{
+  font-size:42px;
+  color:#1e293b;
+  margin-bottom:40px;
+}
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  width:100%;
+}
+
+.dashboard-card{
+  background:white;
+  padding:40px 20px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.12);
+  min-height:220px;
+}
+
+.card-icon{
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.dashboard-card h2{
+  font-size:42px;
+  color:#0056a6;
+}
+
+.dashboard-card p{
+  margin-top:10px;
+  font-size:20px;
+  color:#555;
+}
+
+/* LOGIN */
+
+.login-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-card{
+  width:450px;
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.login-card h1{
+  color:#0056a6;
+  font-size:42px;
+}
+
+.login-card h3{
+  color:#64748b;
+}
+
+.login-input{
+  padding:15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:18px;
+}
+
+.login-btn{
+  background:#007bff;
+  color:white;
+  border:none;
+  padding:15px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* EMPLOYEE TABLE */
+
+.container{
+  padding:40px;
+}
+
+.search-box{
+  width:400px;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:18px;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.table th{
+  background:#0056a6;
+  color:white;
+  font-size:18px;
+}
+
+.table th,
+.table td{
+  padding:16px;
+  border:1px solid #ddd;
+  font-size:16px;
+}
+
+.table tr:hover{
+  background:#f1f5f9;
+}
