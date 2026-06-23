@@ -1,11 +1,12 @@
 package com.collegemanagement.controller;
 
-import com.collegemanagement.model.College;
+import com.collegemanagement.model.*;
 import com.collegemanagement.repository.CollegeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/colleges")
@@ -96,8 +97,87 @@ public class CollegeController {
         return collegeRepository.findByFeesLessThanEqual(fees);
     }
 
-    @GetMapping("/search/{name}")
+    // OLD SEARCH (College Name Search)
+    @GetMapping("/searchbyname/{name}")
     public List<College> searchCollege(@PathVariable String name) {
         return collegeRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    // NEW UNIVERSAL SEARCH
+    @GetMapping("/search/{keyword}")
+    public List<College> universalSearch(
+            @PathVariable String keyword
+    ) {
+
+        String search = keyword.toLowerCase();
+
+        return collegeRepository.findAll()
+                .stream()
+                .filter(college ->
+
+                        (college.getName() != null &&
+                                college.getName().toLowerCase().contains(search))
+
+                                ||
+
+                                (college.getCity() != null &&
+                                        college.getCity().toLowerCase().contains(search))
+
+                                ||
+
+                                (college.getState() != null &&
+                                        college.getState().toLowerCase().contains(search))
+
+                                ||
+
+                                (college.getCourseType() != null &&
+                                        college.getCourseType().toLowerCase().contains(search))
+
+                                ||
+
+                                (college.getDepartments() != null &&
+                                        college.getDepartments().stream()
+                                                .anyMatch(d ->
+                                                        d.getDepartmentName() != null &&
+                                                                d.getDepartmentName()
+                                                                        .toLowerCase()
+                                                                        .contains(search)
+                                                ))
+
+                                ||
+
+                                (college.getStudents() != null &&
+                                        college.getStudents().stream()
+                                                .anyMatch(s ->
+                                                        s.getStudentName() != null &&
+                                                                s.getStudentName()
+                                                                        .toLowerCase()
+                                                                        .contains(search)
+                                                ))
+
+                                ||
+
+                                (college.getFaculties() != null &&
+                                        college.getFaculties().stream()
+                                                .anyMatch(f ->
+                                                        f.getFacultyName() != null &&
+                                                                f.getFacultyName()
+                                                                        .toLowerCase()
+                                                                        .contains(search)
+                                                ))
+
+                                ||
+
+                                (college.getPlacements() != null &&
+                                        college.getPlacements().stream()
+                                                .anyMatch(p ->
+                                                        p.getCompanyName() != null &&
+                                                                p.getCompanyName()
+                                                                        .toLowerCase()
+                                                                        .contains(search)
+                                                ))
+
+                )
+                .collect(Collectors.toList());
     }
 }
