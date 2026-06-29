@@ -1,7 +1,6 @@
 package com.collegemanagement.controller;
 
-import com.collegemanagement.service.AiService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.collegemanagement.service.AiChatService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -11,17 +10,15 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 public class AiController {
 
-    @Autowired
-    private AiService aiService;
+    private final AiChatService aiChatService;
+
+    public AiController(AiChatService aiChatService) {
+        this.aiChatService = aiChatService;
+    }
 
     @PostMapping("/chat")
-    public String chat(
-            @RequestBody Map<String,String> body
-    ) {
-
-        String question =
-                body.get("question");
-
-        return aiService.ask(question);
+    public String chat(@RequestBody Map<String, String> body) {
+        return aiChatService.chat(body.get("question"));
     }
+
 }

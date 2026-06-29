@@ -15,82 +15,177 @@
     <groupId>com.collegemanagement</groupId>
     <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>backend</name>
-    <description>College Management System</description>
+
+    <description>
+        AI Powered College Information Management System
+    </description>
 
     <properties>
+
         <java.version>21</java.version>
+
+        <spring-ai.version>1.0.1</spring-ai.version>
+
     </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+
+                <groupId>org.springframework.ai</groupId>
+
+                <artifactId>spring-ai-bom</artifactId>
+
+                <version>${spring-ai.version}</version>
+
+                <type>pom</type>
+
+                <scope>import</scope>
+
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
 
     <dependencies>
 
-        <!-- Spring Web -->
+        <!-- Spring Boot -->
+
         <dependency>
+
             <groupId>org.springframework.boot</groupId>
+
             <artifactId>spring-boot-starter-web</artifactId>
+
         </dependency>
 
-        <!-- MongoDB -->
         <dependency>
+
             <groupId>org.springframework.boot</groupId>
+
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
+
         </dependency>
 
-        <!-- Swagger/OpenAPI -->
+        <!-- Spring AI Ollama -->
+
         <dependency>
+
+            <groupId>org.springframework.ai</groupId>
+
+            <artifactId>spring-ai-starter-model-ollama</artifactId>
+
+        </dependency>
+
+        <!-- Spring AI MCP Server -->
+
+        <dependency>
+
+            <groupId>org.springframework.ai</groupId>
+
+            <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+
+        </dependency>
+
+        <!-- Swagger -->
+
+        <dependency>
+
             <groupId>org.springdoc</groupId>
+
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+
             <version>2.8.9</version>
+
         </dependency>
 
         <!-- Lombok -->
+
         <dependency>
+
             <groupId>org.projectlombok</groupId>
+
             <artifactId>lombok</artifactId>
+
             <optional>true</optional>
+
         </dependency>
 
-        <!-- Dev Tools -->
+        <!-- DevTools -->
+
         <dependency>
+
             <groupId>org.springframework.boot</groupId>
+
             <artifactId>spring-boot-devtools</artifactId>
+
             <scope>runtime</scope>
+
             <optional>true</optional>
+
         </dependency>
 
-        <!-- Testing -->
+        <!-- Test -->
+
         <dependency>
+
             <groupId>org.springframework.boot</groupId>
+
             <artifactId>spring-boot-starter-test</artifactId>
+
             <scope>test</scope>
+
         </dependency>
 
     </dependencies>
 
     <build>
+
         <plugins>
 
             <plugin>
+
                 <groupId>org.springframework.boot</groupId>
+
                 <artifactId>spring-boot-maven-plugin</artifactId>
+
             </plugin>
 
             <plugin>
+
                 <groupId>org.apache.maven.plugins</groupId>
+
                 <artifactId>maven-compiler-plugin</artifactId>
+
                 <configuration>
+
                     <source>21</source>
+
                     <target>21</target>
+
                     <annotationProcessorPaths>
+
                         <path>
+
                             <groupId>org.projectlombok</groupId>
+
                             <artifactId>lombok</artifactId>
+
                         </path>
+
                     </annotationProcessorPaths>
+
                 </configuration>
+
             </plugin>
 
         </plugins>
+
     </build>
 
 </project>
